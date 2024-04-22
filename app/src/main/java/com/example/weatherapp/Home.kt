@@ -15,8 +15,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -24,6 +24,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.weatherapp.ui.theme.PrimaryColor
+
+//Gradient Color
+val brush = Brush.horizontalGradient(
+    listOf(
+        Color(0xFFD198C3),
+        Color.White,
+        Color(0xFFD198C3)
+    )
+)
 
 @Preview(showBackground = true)
 @Composable
@@ -31,7 +41,7 @@ fun Home(){
     Column (
         Modifier
             .fillMaxWidth()
-            .background(color = colorResource(id = R.color.themeColor))
+            .background(brush)
             .padding(top = 15.dp, start = 15.dp, end = 15.dp, bottom = 15.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ){
@@ -81,7 +91,7 @@ fun InfoTable() {
         modifier = Modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(15.dp))
-            .background(color = colorResource(id = R.color.themeColor2))
+            .background(PrimaryColor)
     ) {
         Row(Modifier.padding(16.dp)) {
             InfoItem(
@@ -98,7 +108,7 @@ fun InfoTable() {
             )
         }
         Divider(
-            color = colorResource(id = R.color.themeColor2),
+            color = PrimaryColor,
             modifier = Modifier.padding(horizontal = 16.dp)
         )
         Row(Modifier.padding(16.dp)) {
